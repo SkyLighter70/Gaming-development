@@ -280,9 +280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f242a0448e8d4c4a88835e98d2bcffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalInput: 0
-  speed: 10
-  xRange: 25
+  fireDelayRate: 0.5
+  fireTimer: 1
   foodProjectile: {fileID: 836823261486420973, guid: d46b7169dac284356915de133599a23e,
     type: 3}
 --- !u!1 &425805626
@@ -498,9 +497,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.75835
+  field of view: 8.973363
   orthographic: 1
-  orthographic size: 12
+  orthographic size: 30.926664
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -524,8 +523,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.29, y: 45.64, z: 4}
-  m_LocalScale: {x: 1.8463, y: 53.36915, z: 1.4422557}
+  m_LocalPosition: {x: -2.2, y: 16.4, z: 13.5}
+  m_LocalScale: {x: 0.64352787, y: 70.29784, z: 1.4422557}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -722,7 +721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6f52b946693e54048af74f5cd6ba49f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.09924698
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6f52b946693e54048af74f5cd6ba49f8, type: 3}
       propertyPath: m_LocalPosition.z
