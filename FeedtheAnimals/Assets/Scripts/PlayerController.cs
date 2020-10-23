@@ -7,8 +7,6 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float speed = 25.0f;
     private float xRange = 25.0f;
-    public float fireDelayRate = 1.0f;
-    public float fireTimer = 1.0f;
     public GameObject foodProjectile;
     
     // Start is called before the first frame update
@@ -18,7 +16,6 @@ public class PlayerController : MonoBehaviour
     {
     //get input and stores it in horizontalInput
         horizontalInput = Input.GetAxis("Horizontal");
-        fireDelayRate = fireDelayRate + 1f;
         //takes the horizontalInput and multiplies by speed and Time.deltaTime to control the speed and have it trigger once per second.
         transform.Translate(Vector3.right * Time.deltaTime * horizontalInput * speed);
         //block the player at -xRange
@@ -36,12 +33,7 @@ public class PlayerController : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            if(fireTimer >= fireDelayRate)
-            {
                 Instantiate(foodProjectile, transform.position, foodProjectile.transform.rotation);
-
-            }
-            
         }
     }
 }
