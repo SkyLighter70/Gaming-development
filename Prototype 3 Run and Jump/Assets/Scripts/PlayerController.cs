@@ -16,13 +16,20 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem explosionParticle;
     public ParticleSystem dirtParticle;
 
+    public AudioClip jumpSound;
+    public AudioClip crashSound;
+    private AudioSource playerAudio;
+
+
     // Start is called before the first frame update
     void Start()
     {
         playerAnim = GetComponent<Animator>();
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
-        
+
+        playerAudio = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -34,7 +41,7 @@ public class PlayerController : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
             dirtParticle.Stop();
-
+            playerAudio.PlayOneShot(jumpSound);
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -52,6 +59,8 @@ public class PlayerController : MonoBehaviour
             playerAnim.SetBool("Death_b", true);
             playerAnim.SetInteger("DeathType_int", 1);
             explosionParticle.Play();
+            
+            playerAudio.PlayOneShot(crashSound, 1.0f);
             dirtParticle.Stop();
         }
 

@@ -232,8 +232,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.058899, z: 1}
-  m_Center: {x: 0, y: 1.5376263, z: 0}
+  m_Size: {x: 1, y: 3.058899, z: 1.1310623}
+  m_Center: {x: 4.3075225e-17, y: 1.5376263, z: 0.065531135}
 --- !u!54 &219355140
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -274,6 +274,8 @@ MonoBehaviour:
   gameOver: 0
   explosionParticle: {fileID: 1481105022}
   dirtParticle: {fileID: 1700861732}
+  jumpSound: {fileID: 8300000, guid: 08ab7053d586c458db3774d33c141a4b, type: 3}
+  crashSound: {fileID: 8300000, guid: 4bcde6de2166e41e284ec46d8a01fb90, type: 3}
 --- !u!1001 &241349535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -886,6 +888,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 6000775551445169638, guid: 9f71ba8ecbffb453e86ba16317234b17,
     type: 3}
+  repeatDelay: 2
+  jumpSound: {fileID: 0}
+  crashSound: {fileID: 0}
 --- !u!4 &2137152404
 Transform:
   m_ObjectHideFlags: 0
