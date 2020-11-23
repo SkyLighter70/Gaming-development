@@ -24,6 +24,7 @@ public class SpawnManager : MonoBehaviour
     {
         repeatDelay = Random.Range(2, 4);
     }
+
     void SpawnObstacle()
     {
         if(playerControllerScript.gameOver == false)
