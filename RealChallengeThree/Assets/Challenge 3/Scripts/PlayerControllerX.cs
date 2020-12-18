@@ -12,18 +12,26 @@ public class PlayerControllerX : MonoBehaviour
 
     public ParticleSystem explosionParticle;
     public ParticleSystem fireworksParticle;
+    
+
 
     private AudioSource playerAudio;
     public AudioClip moneySound;
+    public AudioClip bounceSound;
     public AudioClip explodeSound;
+    public AudioClip mainMusic;
 
-
+    public bool isLowEnough = true;
+    //public int topYLine = 17;
+    public int botYLine = 0;
     // Start is called before the first frame update
     void Start()
     {
+        
         Physics.gravity *= gravityModifier;
         playerAudio = GetComponent<AudioSource>();
         playerRb = GetComponent<Rigidbody>();
+        
         // Apply a small upward force at the start of the game
          playerRb.AddForce(Vector3.up * 5, ForceMode.Impulse);
 
@@ -32,10 +40,26 @@ public class PlayerControllerX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerRb.transform.position.y >= 17)
+        {
+            isLowEnough = false;
+            playerRb.AddForce(Vector3.down * .1f, ForceMode.Impulse);
+        }
+
+        if (playerRb.transform.position.y < 17)
+        {
+            isLowEnough = true;
+        }
         // While space is pressed and player is low enough, float up
-        if (Input.GetKey(KeyCode.Space) && !gameOver)
+        if (Input.GetKey(KeyCode.Space) && !gameOver && isLowEnough == true)
         {
             playerRb.AddForce(Vector3.up * floatForce);
+        }
+
+        if (transform.position.y <= 0)
+        {
+            playerRb.AddForce(Vector3.up * .6f, ForceMode.Impulse);
+            playerAudio.PlayOneShot(bounceSound);
         }
     }
 
