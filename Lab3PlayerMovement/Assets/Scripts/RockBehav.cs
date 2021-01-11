@@ -21,11 +21,7 @@ public class RockBehav : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < .5)
-        {
-            Destroy(gameObject);
-        }
-        Vector3 lookDirection = (Sun.transform.position - transform.position).normalized;
-        rockRb.AddForce(lookDirection * speed);
+        //Need to get it so it spawns facing the orgin
+        rockRb.transform.position = transform.position += Vector3.forward * Time.deltaTime * speed;
     }
 }

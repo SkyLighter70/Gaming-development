@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rockRb: {fileID: 6960744902620888411}
-  Sun: {fileID: 0}
+  Sun: {fileID: 7910140177161352007, guid: 85d2e1933261b4fd19602afb2617b1f1, type: 3}
 --- !u!65 &7425786924080594055
 BoxCollider:
   m_ObjectHideFlags: 0
