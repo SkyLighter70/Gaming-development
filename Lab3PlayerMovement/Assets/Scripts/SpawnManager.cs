@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    public GameObject[] rockPrefabs;
+    private float spawnRangeX = 15.0f;
+    private float spawnPosZ = 15.0f;
+
+
+    public float startDelay = 2.0f;
+    public float spawnInterval = 1.5f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating("SpawnRock", startDelay, spawnInterval);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void SpawnRock()
+    {
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+
+        int rockIndex = Random.Range(0, rockPrefabs.Length);
+        Instantiate(rockPrefabs[rockIndex], spawnPos, rockPrefabs[rockIndex].transform.rotation);
     }
 }
