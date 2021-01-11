@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RockBehav : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
-
-    //variables
-    public float spawnDelaySpeed = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
