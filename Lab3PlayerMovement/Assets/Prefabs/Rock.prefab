@@ -110,6 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e75e38e359384a31b0bbed13f820d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rockRb: {fileID: 5946167411876331563}
+  sun: {fileID: 0}
 --- !u!65 &6129749317648433655
 BoxCollider:
   m_ObjectHideFlags: 0

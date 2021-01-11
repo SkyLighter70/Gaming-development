@@ -110,7 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e75e38e359384a31b0bbed13f820d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDelaySpeed: 1
+  rockRb: {fileID: 6960744902620888411}
+  Sun: {fileID: 0}
 --- !u!65 &7425786924080594055
 BoxCollider:
   m_ObjectHideFlags: 0
