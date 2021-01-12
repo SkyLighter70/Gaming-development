@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] rockPrefabs;
     private float spawnRangeX = 15.0f;
-    private float spawnPosZ = 15.0f;
+    private float spawnRangeZ = 15.0f;
 
 
     public float startDelay = 2.0f;
@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnRock()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, Random.Range(-spawnRangeZ, spawnRangeZ));
 
         int rockIndex = Random.Range(0, rockPrefabs.Length);
         Instantiate(rockPrefabs[rockIndex], spawnPos, rockPrefabs[rockIndex].transform.rotation);
