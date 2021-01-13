@@ -24,5 +24,6 @@ public class RockBehav : MonoBehaviour
         //Need to get it so it spawns facing the orgin
         Vector3 lookDirection = (Sun.transform.position - transform.position).normalized;
         rockRb.AddForce(lookDirection * speed);
+        
     }
 }

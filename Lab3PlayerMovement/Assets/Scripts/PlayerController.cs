@@ -10,6 +10,13 @@ public class PlayerController : MonoBehaviour
     public string curLane = "middle";
     public float mousePosVar;
 
+    private float normalStrength = 5; // how hard to hit enemy without powerup
+    private float powerupStrength = 25; // how hard to hit enemy with powerup
+
+    public bool hasPowerup;
+    public GameObject powerupIndicator;
+    public int powerUpDuration = 5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +34,45 @@ public class PlayerController : MonoBehaviour
 
         
 
+    }
+
+    // If Player collides with powerup, activate powerup
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Powerup"))
+        {
+            Destroy(other.gameObject);
+            hasPowerup = true;
+            powerupIndicator.SetActive(true);
+            StartCoroutine(PowerupCooldown());
+        }
+    }
+
+    // Coroutine to count down powerup duration
+    IEnumerator PowerupCooldown()
+    {
+        yield return new WaitForSeconds(powerUpDuration);
+        hasPowerup = false;
+        powerupIndicator.SetActive(false);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Rock"))
+        {
+            Rigidbody enemyRigidbody = other.gameObject.GetComponent<Rigidbody>();
+            Vector3 awayFromPlayer = other.gameObject.transform.position - transform.position;
+
+            if (hasPowerup) // if have powerup hit enemy with powerup force
+            {
+                enemyRigidbody.AddForce(awayFromPlayer * powerupStrength, ForceMode.Impulse);
+            }
+            else // if no powerup, hit enemy with normal strength 
+            {
+                enemyRigidbody.AddForce(awayFromPlayer * normalStrength, ForceMode.Impulse);
+            }
+
+
+        }
     }
 }

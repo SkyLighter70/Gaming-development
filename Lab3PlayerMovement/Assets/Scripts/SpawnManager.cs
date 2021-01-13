@@ -10,7 +10,7 @@ public class SpawnManager : MonoBehaviour
 
 
     public float startDelay = 2.0f;
-    public float spawnInterval = 1.0f;
+    public float spawnInterval = 2.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,9 +25,12 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnRock()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, Random.Range(-spawnRangeZ, spawnRangeZ));
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 1.76f, Random.Range(-spawnRangeZ, spawnRangeZ));
 
         int rockIndex = Random.Range(0, rockPrefabs.Length);
         Instantiate(rockPrefabs[rockIndex], spawnPos, rockPrefabs[rockIndex].transform.rotation);
     }
+
+
+
 }
