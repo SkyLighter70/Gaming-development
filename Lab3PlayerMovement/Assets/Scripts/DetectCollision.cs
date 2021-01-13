@@ -17,10 +17,10 @@ public class DetectCollision : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        //Destroy this object
-        Destroy(gameObject);
-
-        //Destroy other object this object is colliding with
-        Destroy(other.gameObject);
+    //Destroy this object
+    Destroy(gameObject);
+    
+    //Destroy other object this object is colliding with
+    Destroy(other.gameObject);
     }
 }
