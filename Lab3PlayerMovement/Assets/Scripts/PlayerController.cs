@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public string curLane = "middle";
     public float mousePosVar;
 
-    private float normalStrength = 5; // how hard to hit enemy without powerup
+    private float normalStrength = 4.0f; // how hard to hit enemy without powerup
     private float powerupStrength = 25; // how hard to hit enemy with powerup
 
     public bool hasPowerup;
@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(PowerupCooldown());
         }
     }
+
+    
+
 
     // Coroutine to count down powerup duration
     IEnumerator PowerupCooldown()

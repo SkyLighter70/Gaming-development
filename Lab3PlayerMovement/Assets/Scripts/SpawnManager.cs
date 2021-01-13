@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+
     public GameObject[] rockPrefabs;
     private float spawnRangeX = 15.0f;
     private float spawnRangeZ = 15.0f;
 
+    public string gameOver = "F";
+
+    
 
     public float startDelay = 2.0f;
     public float spawnInterval = 2.0f;
+    public float score = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +25,12 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(gameOver == "T")
+        {
+            print("GAME OVER! Your score is " + score + ".");
+            Time.timeScale = 0;
+            gameOver = "D";
+        }
     }
 
     void SpawnRock()

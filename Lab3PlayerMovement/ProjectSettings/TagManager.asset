@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Rock
   - Powerup
+  - Sun
   layers:
   - Default
   - TransparentFX
