@@ -17,10 +17,16 @@ public class PlayerController : MonoBehaviour
     public GameObject powerupIndicator;
     public int powerUpDuration = 5;
 
+    
+    public AudioSource playerAudio;
+    public AudioClip bounceSound;
+    public AudioClip mainMusic;
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GameObject.Find("Player").GetComponent<Rigidbody>();
+        playerAudio = GetComponent<AudioSource>();
+        playerAudio.PlayOneShot(mainMusic);
     }
 
     // Update is called once per frame
@@ -63,6 +69,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Rock"))
         {
+            playerAudio.PlayOneShot(bounceSound);
             Rigidbody enemyRigidbody = other.gameObject.GetComponent<Rigidbody>();
             Vector3 awayFromPlayer = other.gameObject.transform.position - transform.position;
 
