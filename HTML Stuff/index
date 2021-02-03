@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>WebVR</title>
+        <script 
+        src="https://aframe.io/releases/0.8.2/aframe.mis.js"> 
+        </script>
+    </head>
+
+    <body>
+        <a-scene>
+            <a-sky color="midnightblue"> 
+                
+            </a-sky>
+        </a-scene>
+
+
+    </body>
+<html>
